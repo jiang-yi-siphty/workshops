@@ -77,29 +77,28 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 //:Universal error
 
-// 内存不足
-let a = [Int](repeating: 10, count: 3)
-print(a)
+// Out of Memory
+let repeatingNums = [Int](repeating: 10, count: 3)
 //let b = [Int](repeating: 100, count: .max)
 
-// 调用栈溢出
+// stack overflow
 //func foo() { foo() }
 //foo()
 
 
 //:Logic failure
-//// 强制解包一个 `nil` 可选值
-//var name: String? = nil
+// Force unwrap `nil` optional varible
+var name: String? = nil
 //name!
-//
-//// 数组越界访问
-//let arr = [1,2,3]
+
+// Array out of bounds
+let arr = [1,2,3]
 //let num = arr[3]
-//
-//// 计算溢出
-//var a = Int.max
+
+// Calculation overflow
+var a = Int.max
 //a += 1
-//
-//// 强制 try 但是出现错误
-//try! JSONDecoder().decode(Foo.self, from: Data())
+
+// 强制 try 但是出现错误
+//try! JSONDecoder().decode([String: Int].self, from: Data())
 
