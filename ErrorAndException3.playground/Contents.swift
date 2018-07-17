@@ -8,8 +8,8 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 //:Simple domain error
 //This is a kind of error we don't need know reason.
-//We just need to know it happened. And, we need do something.
-//------------------------------------------------------------------------------
+////------------------------------------------------------------------------------
+////We just need to know it happened. And, we need do something.
 //let num = Int("hello world")
 //
 //let dic = ["a": 100, "b": 200]
@@ -23,8 +23,9 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 
 //:Recoverable error
-// API request
-//------------------------------------------------------------------------------
+//It will throw a Error (/NSError)
+////------------------------------------------------------------------------------
+//// API request
 //class ServerManager {
 //    let fileUrl = URL(fileURLWithPath: NSTemporaryDirectory())
 //
@@ -76,29 +77,37 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 
 //:Universal error
-
-// Out of Memory
-let repeatingNums = [Int](repeating: 10, count: 3)
-//let b = [Int](repeating: 100, count: .max)
-
-// stack overflow
-//func foo() { foo() }
-//foo()
+//It will cause a fatalError
+////------------------------------------------------------------------------------
+//// Out of Memory
+//let repeatingNums = [Int](repeating: 10, count: 3)
+////let b = [Int](repeating: 100, count: .max)
+//
+//// stack overflow
+////func foo() { foo() }
+////foo()
 
 
 //:Logic failure
-// Force unwrap `nil` optional varible
-var name: String? = nil
-//name!
+////------------------------------------------------------------------------------
+//// Force unwrap `nil` optional varible
+//var name: String? = nil
+////name!
+//
+//// Array out of bounds
+//let arr = [1,2,3]
+////let num = arr[3]
+//
+//// Calculation overflow
+//var a = Int.max
+////a += 1
+//
+//// 强制 try 但是出现错误
+////try! JSONDecoder().decode([String: Int].self, from: Data())
 
-// Array out of bounds
-let arr = [1,2,3]
-//let num = arr[3]
 
-// Calculation overflow
-var a = Int.max
-//a += 1
 
-// 强制 try 但是出现错误
-//try! JSONDecoder().decode([String: Int].self, from: Data())
-
+//func          faltaError      precondition      assert
+//-Onone        trigger         trigger           trigger
+//-O            trigger         trigger
+//-Ounchecked   trigger
